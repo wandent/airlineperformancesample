@@ -1,0 +1,1459 @@
+{
+  "name": "airlines",
+  "description": "Imported database from sql server 'wtnssisruntime.database.windows.net' and database 'wtndwairline'",
+  "compatibilityLevel": 1400,
+  "model": {
+    "name": "airlines",
+    "description": "A Tabular data model at the 1400 compatibility level.",
+    "defaultMode": "directQuery",
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer wtnssisruntime.database.windows.net wtndwairline",
+        "description": "A data source definition that uses explicit sql server credentials from connection string",
+        "connectionString": "Provider=SQLNCLI11;Server=tcp:wtnssisruntime.database.windows.net;Initial Catalog=wtndwairline;Persist Security Info=False;User ID=wandent;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30",
+        "impersonationMode": "impersonateServiceAccount"
+      }
+    ],
+    "tables": [
+      {
+        "name": "airlines",
+        "description": "All data from airlines",
+        "columns": [
+          {
+            "name": "code",
+            "dataType": "int64",
+            "sourceColumn": "code"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "airlines",
+            "source": {
+              "query": "SELECT [code],[description] FROM [dbo].[airlines]",
+              "dataSource": "SqlServer wtnssisruntime.database.windows.net wtndwairline"
+            }
+          }
+        ]
+      },
+      {
+        "name": "airports",
+        "description": "All data from airports",
+        "columns": [
+          {
+            "name": "code",
+            "dataType": "string",
+            "sourceColumn": "code"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "airports",
+            "source": {
+              "query": "SELECT [code],[description] FROM [dbo].[airports]",
+              "dataSource": "SqlServer wtnssisruntime.database.windows.net wtndwairline"
+            }
+          }
+        ]
+      },
+      {
+        "name": "delayed",
+        "description": "All data from delayed",
+        "columns": [
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "DayofMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayofMonth",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayOfWeek",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "FlightDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FlightDate",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "UniqueCarrier",
+            "dataType": "string",
+            "sourceColumn": "UniqueCarrier",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "AirlineID",
+            "dataType": "int64",
+            "sourceColumn": "AirlineID",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Carrier",
+            "dataType": "string",
+            "sourceColumn": "Carrier",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "TailNum",
+            "dataType": "string",
+            "sourceColumn": "TailNum",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "FlightNum",
+            "dataType": "int64",
+            "sourceColumn": "FlightNum",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "OriginAirportID",
+            "dataType": "int64",
+            "sourceColumn": "OriginAirportID",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "OriginAirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "OriginAirportSeqID",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "OriginCityMarketID",
+            "dataType": "int64",
+            "sourceColumn": "OriginCityMarketID",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "Origin",
+            "dataType": "string",
+            "sourceColumn": "Origin",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "OriginCityName",
+            "dataType": "string",
+            "sourceColumn": "OriginCityName",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "OriginState",
+            "dataType": "string",
+            "sourceColumn": "OriginState",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "OriginStateFips",
+            "dataType": "int64",
+            "sourceColumn": "OriginStateFips",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "OriginStateName",
+            "dataType": "string",
+            "sourceColumn": "OriginStateName",
+            "displayOrdinal": 17
+          },
+          {
+            "name": "OriginWac",
+            "dataType": "int64",
+            "sourceColumn": "OriginWac",
+            "displayOrdinal": 18
+          },
+          {
+            "name": "DestAirportID",
+            "dataType": "int64",
+            "sourceColumn": "DestAirportID",
+            "displayOrdinal": 19
+          },
+          {
+            "name": "DestAirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "DestAirportSeqID",
+            "displayOrdinal": 20
+          },
+          {
+            "name": "DestCityMarketID",
+            "dataType": "int64",
+            "sourceColumn": "DestCityMarketID",
+            "displayOrdinal": 21
+          },
+          {
+            "name": "Dest",
+            "dataType": "string",
+            "sourceColumn": "Dest",
+            "displayOrdinal": 22
+          },
+          {
+            "name": "DestCityName",
+            "dataType": "string",
+            "sourceColumn": "DestCityName",
+            "displayOrdinal": 23
+          },
+          {
+            "name": "DestState",
+            "dataType": "string",
+            "sourceColumn": "DestState",
+            "displayOrdinal": 24
+          },
+          {
+            "name": "DestStateFips",
+            "dataType": "int64",
+            "sourceColumn": "DestStateFips",
+            "displayOrdinal": 25
+          },
+          {
+            "name": "DestStateName",
+            "dataType": "string",
+            "sourceColumn": "DestStateName",
+            "displayOrdinal": 26
+          },
+          {
+            "name": "DestWac",
+            "dataType": "int64",
+            "sourceColumn": "DestWac",
+            "displayOrdinal": 27
+          },
+          {
+            "name": "CRSDepTime",
+            "dataType": "int64",
+            "sourceColumn": "CRSDepTime",
+            "displayOrdinal": 28
+          },
+          {
+            "name": "DepTime",
+            "dataType": "int64",
+            "sourceColumn": "DepTime",
+            "displayOrdinal": 29
+          },
+          {
+            "name": "DepDelay",
+            "dataType": "double",
+            "sourceColumn": "DepDelay",
+            "displayOrdinal": 30
+          },
+          {
+            "name": "DepDelayMinutes",
+            "dataType": "double",
+            "sourceColumn": "DepDelayMinutes",
+            "displayOrdinal": 31
+          },
+          {
+            "name": "DepDel15",
+            "dataType": "double",
+            "sourceColumn": "DepDel15",
+            "displayOrdinal": 32
+          },
+          {
+            "name": "DepartureDelayGroups",
+            "dataType": "int64",
+            "sourceColumn": "DepartureDelayGroups",
+            "displayOrdinal": 33
+          },
+          {
+            "name": "DepTimeBlk",
+            "dataType": "string",
+            "sourceColumn": "DepTimeBlk",
+            "displayOrdinal": 34
+          },
+          {
+            "name": "TaxiOut",
+            "dataType": "double",
+            "sourceColumn": "TaxiOut",
+            "displayOrdinal": 35
+          },
+          {
+            "name": "WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "WheelsOff",
+            "displayOrdinal": 36
+          },
+          {
+            "name": "WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "WheelsOn",
+            "displayOrdinal": 37
+          },
+          {
+            "name": "TaxiIn",
+            "dataType": "double",
+            "sourceColumn": "TaxiIn",
+            "displayOrdinal": 38
+          },
+          {
+            "name": "CRSArrTime",
+            "dataType": "int64",
+            "sourceColumn": "CRSArrTime",
+            "displayOrdinal": 39
+          },
+          {
+            "name": "ArrTime",
+            "dataType": "int64",
+            "sourceColumn": "ArrTime",
+            "displayOrdinal": 40
+          },
+          {
+            "name": "ArrDelay",
+            "dataType": "double",
+            "sourceColumn": "ArrDelay",
+            "displayOrdinal": 41
+          },
+          {
+            "name": "ArrDelayMinutes",
+            "dataType": "double",
+            "sourceColumn": "ArrDelayMinutes",
+            "displayOrdinal": 42
+          },
+          {
+            "name": "ArrDel15",
+            "dataType": "double",
+            "sourceColumn": "ArrDel15",
+            "displayOrdinal": 43
+          },
+          {
+            "name": "ArrivalDelayGroups",
+            "dataType": "int64",
+            "sourceColumn": "ArrivalDelayGroups",
+            "displayOrdinal": 44
+          },
+          {
+            "name": "ArrTimeBlk",
+            "dataType": "string",
+            "sourceColumn": "ArrTimeBlk",
+            "displayOrdinal": 45
+          },
+          {
+            "name": "Cancelled",
+            "dataType": "double",
+            "sourceColumn": "Cancelled",
+            "displayOrdinal": 46
+          },
+          {
+            "name": "CancellationCode",
+            "dataType": "string",
+            "sourceColumn": "CancellationCode",
+            "displayOrdinal": 47
+          },
+          {
+            "name": "Diverted",
+            "dataType": "double",
+            "sourceColumn": "Diverted",
+            "displayOrdinal": 48
+          },
+          {
+            "name": "CRSElapsedTime",
+            "dataType": "double",
+            "sourceColumn": "CRSElapsedTime",
+            "displayOrdinal": 49
+          },
+          {
+            "name": "ActualElapsedTime",
+            "dataType": "double",
+            "sourceColumn": "ActualElapsedTime",
+            "displayOrdinal": 50
+          },
+          {
+            "name": "AirTime",
+            "dataType": "double",
+            "sourceColumn": "AirTime",
+            "displayOrdinal": 51
+          },
+          {
+            "name": "Flights",
+            "dataType": "double",
+            "sourceColumn": "Flights",
+            "displayOrdinal": 52
+          },
+          {
+            "name": "Distance",
+            "dataType": "double",
+            "sourceColumn": "Distance",
+            "displayOrdinal": 53
+          },
+          {
+            "name": "DistanceGroup",
+            "dataType": "int64",
+            "sourceColumn": "DistanceGroup",
+            "displayOrdinal": 54
+          },
+          {
+            "name": "CarrierDelay",
+            "dataType": "double",
+            "sourceColumn": "CarrierDelay",
+            "displayOrdinal": 55
+          },
+          {
+            "name": "WeatherDelay",
+            "dataType": "double",
+            "sourceColumn": "WeatherDelay",
+            "displayOrdinal": 56
+          },
+          {
+            "name": "NASDelay",
+            "dataType": "double",
+            "sourceColumn": "NASDelay",
+            "displayOrdinal": 57
+          },
+          {
+            "name": "SecurityDelay",
+            "dataType": "double",
+            "sourceColumn": "SecurityDelay",
+            "displayOrdinal": 58
+          },
+          {
+            "name": "LateAircraftDelay",
+            "dataType": "double",
+            "sourceColumn": "LateAircraftDelay",
+            "displayOrdinal": 59
+          },
+          {
+            "name": "FirstDepTime",
+            "dataType": "int64",
+            "sourceColumn": "FirstDepTime",
+            "displayOrdinal": 60
+          },
+          {
+            "name": "TotalAddGTime",
+            "dataType": "double",
+            "sourceColumn": "TotalAddGTime",
+            "displayOrdinal": 61
+          },
+          {
+            "name": "LongestAddGTime",
+            "dataType": "double",
+            "sourceColumn": "LongestAddGTime",
+            "displayOrdinal": 62
+          },
+          {
+            "name": "DivAirportLandings",
+            "dataType": "int64",
+            "sourceColumn": "DivAirportLandings",
+            "displayOrdinal": 63
+          },
+          {
+            "name": "DivReachedDest",
+            "dataType": "double",
+            "sourceColumn": "DivReachedDest",
+            "displayOrdinal": 64
+          },
+          {
+            "name": "DivActualElapsedTime",
+            "dataType": "double",
+            "sourceColumn": "DivActualElapsedTime",
+            "displayOrdinal": 65
+          },
+          {
+            "name": "DivArrDelay",
+            "dataType": "double",
+            "sourceColumn": "DivArrDelay",
+            "displayOrdinal": 66
+          },
+          {
+            "name": "DivDistance",
+            "dataType": "double",
+            "sourceColumn": "DivDistance",
+            "displayOrdinal": 67
+          },
+          {
+            "name": "Div1Airport",
+            "dataType": "string",
+            "sourceColumn": "Div1Airport",
+            "displayOrdinal": 68
+          },
+          {
+            "name": "Div1AirportID",
+            "dataType": "int64",
+            "sourceColumn": "Div1AirportID",
+            "displayOrdinal": 69
+          },
+          {
+            "name": "Div1AirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "Div1AirportSeqID",
+            "displayOrdinal": 70
+          },
+          {
+            "name": "Div1WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "Div1WheelsOn",
+            "displayOrdinal": 71
+          },
+          {
+            "name": "Div1TotalGTime",
+            "dataType": "double",
+            "sourceColumn": "Div1TotalGTime",
+            "displayOrdinal": 72
+          },
+          {
+            "name": "Div1LongestGTime",
+            "dataType": "double",
+            "sourceColumn": "Div1LongestGTime",
+            "displayOrdinal": 73
+          },
+          {
+            "name": "Div1WheelsOff",
+            "dataType": "int64",
+            "sourceColumn": "Div1WheelsOff",
+            "displayOrdinal": 74
+          },
+          {
+            "name": "Div1TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div1TailNum",
+            "displayOrdinal": 75
+          },
+          {
+            "name": "Div2Airport",
+            "dataType": "string",
+            "sourceColumn": "Div2Airport",
+            "displayOrdinal": 76
+          },
+          {
+            "name": "Div2AirportID",
+            "dataType": "int64",
+            "sourceColumn": "Div2AirportID",
+            "displayOrdinal": 77
+          },
+          {
+            "name": "Div2AirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "Div2AirportSeqID",
+            "displayOrdinal": 78
+          },
+          {
+            "name": "Div2WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "Div2WheelsOn",
+            "displayOrdinal": 79
+          },
+          {
+            "name": "Div2TotalGTime",
+            "dataType": "double",
+            "sourceColumn": "Div2TotalGTime",
+            "displayOrdinal": 80
+          },
+          {
+            "name": "Div2LongestGTime",
+            "dataType": "double",
+            "sourceColumn": "Div2LongestGTime",
+            "displayOrdinal": 81
+          },
+          {
+            "name": "Div2WheelsOff",
+            "dataType": "int64",
+            "sourceColumn": "Div2WheelsOff",
+            "displayOrdinal": 82
+          },
+          {
+            "name": "Div2TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div2TailNum",
+            "displayOrdinal": 83
+          },
+          {
+            "name": "Div3Airport",
+            "dataType": "string",
+            "sourceColumn": "Div3Airport",
+            "displayOrdinal": 84
+          },
+          {
+            "name": "Div3AirportID",
+            "dataType": "int64",
+            "sourceColumn": "Div3AirportID",
+            "displayOrdinal": 85
+          },
+          {
+            "name": "Div3AirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "Div3AirportSeqID",
+            "displayOrdinal": 86
+          },
+          {
+            "name": "Div3WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "Div3WheelsOn",
+            "displayOrdinal": 87
+          },
+          {
+            "name": "Div3TotalGTime",
+            "dataType": "double",
+            "sourceColumn": "Div3TotalGTime",
+            "displayOrdinal": 88
+          },
+          {
+            "name": "Div3LongestGTime",
+            "dataType": "double",
+            "sourceColumn": "Div3LongestGTime",
+            "displayOrdinal": 89
+          },
+          {
+            "name": "Div3WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "Div3WheelsOff",
+            "displayOrdinal": 90
+          },
+          {
+            "name": "Div3TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div3TailNum",
+            "displayOrdinal": 91
+          },
+          {
+            "name": "Div4Airport",
+            "dataType": "string",
+            "sourceColumn": "Div4Airport",
+            "displayOrdinal": 92
+          },
+          {
+            "name": "Div4AirportID",
+            "dataType": "string",
+            "sourceColumn": "Div4AirportID",
+            "displayOrdinal": 93
+          },
+          {
+            "name": "Div4AirportSeqID",
+            "dataType": "string",
+            "sourceColumn": "Div4AirportSeqID",
+            "displayOrdinal": 94
+          },
+          {
+            "name": "Div4WheelsOn",
+            "dataType": "string",
+            "sourceColumn": "Div4WheelsOn",
+            "displayOrdinal": 95
+          },
+          {
+            "name": "Div4TotalGTime",
+            "dataType": "string",
+            "sourceColumn": "Div4TotalGTime",
+            "displayOrdinal": 96
+          },
+          {
+            "name": "Div4LongestGTime",
+            "dataType": "string",
+            "sourceColumn": "Div4LongestGTime",
+            "displayOrdinal": 97
+          },
+          {
+            "name": "Div4WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "Div4WheelsOff",
+            "displayOrdinal": 98
+          },
+          {
+            "name": "Div4TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div4TailNum",
+            "displayOrdinal": 99
+          },
+          {
+            "name": "Div5Airport",
+            "dataType": "string",
+            "sourceColumn": "Div5Airport",
+            "displayOrdinal": 100
+          },
+          {
+            "name": "Div5AirportID",
+            "dataType": "string",
+            "sourceColumn": "Div5AirportID",
+            "displayOrdinal": 101
+          },
+          {
+            "name": "Div5AirportSeqID",
+            "dataType": "string",
+            "sourceColumn": "Div5AirportSeqID",
+            "displayOrdinal": 102
+          },
+          {
+            "name": "Div5WheelsOn",
+            "dataType": "string",
+            "sourceColumn": "Div5WheelsOn",
+            "displayOrdinal": 103
+          },
+          {
+            "name": "Div5TotalGTime",
+            "dataType": "string",
+            "sourceColumn": "Div5TotalGTime",
+            "displayOrdinal": 104
+          },
+          {
+            "name": "Div5LongestGTime",
+            "dataType": "string",
+            "sourceColumn": "Div5LongestGTime",
+            "displayOrdinal": 105
+          },
+          {
+            "name": "Div5WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "Div5WheelsOff",
+            "displayOrdinal": 106
+          },
+          {
+            "name": "Div5TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div5TailNum",
+            "displayOrdinal": 107
+          },
+          {
+            "name": "_c109",
+            "dataType": "string",
+            "sourceColumn": "_c109",
+            "displayOrdinal": 108
+          }
+        ],
+        "partitions": [
+          {
+            "name": "delayed",
+            "source": {
+              "query": "SELECT [Quarter],[Month],[DayofMonth],[DayOfWeek],[FlightDate],[UniqueCarrier],[AirlineID],[Carrier],[TailNum],[FlightNum],[OriginAirportID],[OriginAirportSeqID],[OriginCityMarketID],[Origin],[OriginCityName],[OriginState],[OriginStateFips],[OriginStateName],[OriginWac],[DestAirportID],[DestAirportSeqID],[DestCityMarketID],[Dest],[DestCityName],[DestState],[DestStateFips],[DestStateName],[DestWac],[CRSDepTime],[DepTime],[DepDelay],[DepDelayMinutes],[DepDel15],[DepartureDelayGroups],[DepTimeBlk],[TaxiOut],[WheelsOff],[WheelsOn],[TaxiIn],[CRSArrTime],[ArrTime],[ArrDelay],[ArrDelayMinutes],[ArrDel15],[ArrivalDelayGroups],[ArrTimeBlk],[Cancelled],[CancellationCode],[Diverted],[CRSElapsedTime],[ActualElapsedTime],[AirTime],[Flights],[Distance],[DistanceGroup],[CarrierDelay],[WeatherDelay],[NASDelay],[SecurityDelay],[LateAircraftDelay],[FirstDepTime],[TotalAddGTime],[LongestAddGTime],[DivAirportLandings],[DivReachedDest],[DivActualElapsedTime],[DivArrDelay],[DivDistance],[Div1Airport],[Div1AirportID],[Div1AirportSeqID],[Div1WheelsOn],[Div1TotalGTime],[Div1LongestGTime],[Div1WheelsOff],[Div1TailNum],[Div2Airport],[Div2AirportID],[Div2AirportSeqID],[Div2WheelsOn],[Div2TotalGTime],[Div2LongestGTime],[Div2WheelsOff],[Div2TailNum],[Div3Airport],[Div3AirportID],[Div3AirportSeqID],[Div3WheelsOn],[Div3TotalGTime],[Div3LongestGTime],[Div3WheelsOff],[Div3TailNum],[Div4Airport],[Div4AirportID],[Div4AirportSeqID],[Div4WheelsOn],[Div4TotalGTime],[Div4LongestGTime],[Div4WheelsOff],[Div4TailNum],[Div5Airport],[Div5AirportID],[Div5AirportSeqID],[Div5WheelsOn],[Div5TotalGTime],[Div5LongestGTime],[Div5WheelsOff],[Div5TailNum],[_c109] FROM [dbo].[delayed]",
+              "dataSource": "SqlServer wtnssisruntime.database.windows.net wtndwairline"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MonthlyDelayed",
+        "description": "All data from MonthlyDelayed",
+        "columns": [
+          {
+            "name": "year",
+            "dataType": "int64",
+            "sourceColumn": "year"
+          },
+          {
+            "name": "month",
+            "dataType": "int64",
+            "sourceColumn": "month",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "UniqueCarrier",
+            "dataType": "string",
+            "sourceColumn": "UniqueCarrier",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "TotalDelayed",
+            "dataType": "int64",
+            "sourceColumn": "TotalDelayed",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "AverageDepartureDelay",
+            "dataType": "double",
+            "sourceColumn": "AverageDepartureDelay",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "MonthlyDelayed",
+            "source": {
+              "query": "SELECT [year],[month],[UniqueCarrier],[TotalDelayed],[AverageDepartureDelay] FROM [dbo].[MonthlyDelayed]",
+              "dataSource": "SqlServer wtnssisruntime.database.windows.net wtndwairline"
+            }
+          }
+        ]
+      },
+      {
+        "name": "performance",
+        "description": "All data from performance",
+        "columns": [
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "DayofMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayofMonth",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayOfWeek",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "FlightDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FlightDate",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "UniqueCarrier",
+            "dataType": "string",
+            "sourceColumn": "UniqueCarrier",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "AirlineID",
+            "dataType": "int64",
+            "sourceColumn": "AirlineID",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Carrier",
+            "dataType": "string",
+            "sourceColumn": "Carrier",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "TailNum",
+            "dataType": "string",
+            "sourceColumn": "TailNum",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "FlightNum",
+            "dataType": "int64",
+            "sourceColumn": "FlightNum",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "OriginAirportID",
+            "dataType": "int64",
+            "sourceColumn": "OriginAirportID",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "OriginAirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "OriginAirportSeqID",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "OriginCityMarketID",
+            "dataType": "int64",
+            "sourceColumn": "OriginCityMarketID",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "Origin",
+            "dataType": "string",
+            "sourceColumn": "Origin",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "OriginCityName",
+            "dataType": "string",
+            "sourceColumn": "OriginCityName",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "OriginState",
+            "dataType": "string",
+            "sourceColumn": "OriginState",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "OriginStateFips",
+            "dataType": "int64",
+            "sourceColumn": "OriginStateFips",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "OriginStateName",
+            "dataType": "string",
+            "sourceColumn": "OriginStateName",
+            "displayOrdinal": 17
+          },
+          {
+            "name": "OriginWac",
+            "dataType": "int64",
+            "sourceColumn": "OriginWac",
+            "displayOrdinal": 18
+          },
+          {
+            "name": "DestAirportID",
+            "dataType": "int64",
+            "sourceColumn": "DestAirportID",
+            "displayOrdinal": 19
+          },
+          {
+            "name": "DestAirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "DestAirportSeqID",
+            "displayOrdinal": 20
+          },
+          {
+            "name": "DestCityMarketID",
+            "dataType": "int64",
+            "sourceColumn": "DestCityMarketID",
+            "displayOrdinal": 21
+          },
+          {
+            "name": "Dest",
+            "dataType": "string",
+            "sourceColumn": "Dest",
+            "displayOrdinal": 22
+          },
+          {
+            "name": "DestCityName",
+            "dataType": "string",
+            "sourceColumn": "DestCityName",
+            "displayOrdinal": 23
+          },
+          {
+            "name": "DestState",
+            "dataType": "string",
+            "sourceColumn": "DestState",
+            "displayOrdinal": 24
+          },
+          {
+            "name": "DestStateFips",
+            "dataType": "int64",
+            "sourceColumn": "DestStateFips",
+            "displayOrdinal": 25
+          },
+          {
+            "name": "DestStateName",
+            "dataType": "string",
+            "sourceColumn": "DestStateName",
+            "displayOrdinal": 26
+          },
+          {
+            "name": "DestWac",
+            "dataType": "int64",
+            "sourceColumn": "DestWac",
+            "displayOrdinal": 27
+          },
+          {
+            "name": "CRSDepTime",
+            "dataType": "int64",
+            "sourceColumn": "CRSDepTime",
+            "displayOrdinal": 28
+          },
+          {
+            "name": "DepTime",
+            "dataType": "int64",
+            "sourceColumn": "DepTime",
+            "displayOrdinal": 29
+          },
+          {
+            "name": "DepDelay",
+            "dataType": "double",
+            "sourceColumn": "DepDelay",
+            "displayOrdinal": 30
+          },
+          {
+            "name": "DepDelayMinutes",
+            "dataType": "double",
+            "sourceColumn": "DepDelayMinutes",
+            "displayOrdinal": 31
+          },
+          {
+            "name": "DepDel15",
+            "dataType": "double",
+            "sourceColumn": "DepDel15",
+            "displayOrdinal": 32
+          },
+          {
+            "name": "DepartureDelayGroups",
+            "dataType": "int64",
+            "sourceColumn": "DepartureDelayGroups",
+            "displayOrdinal": 33
+          },
+          {
+            "name": "DepTimeBlk",
+            "dataType": "string",
+            "sourceColumn": "DepTimeBlk",
+            "displayOrdinal": 34
+          },
+          {
+            "name": "TaxiOut",
+            "dataType": "double",
+            "sourceColumn": "TaxiOut",
+            "displayOrdinal": 35
+          },
+          {
+            "name": "WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "WheelsOff",
+            "displayOrdinal": 36
+          },
+          {
+            "name": "WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "WheelsOn",
+            "displayOrdinal": 37
+          },
+          {
+            "name": "TaxiIn",
+            "dataType": "double",
+            "sourceColumn": "TaxiIn",
+            "displayOrdinal": 38
+          },
+          {
+            "name": "CRSArrTime",
+            "dataType": "int64",
+            "sourceColumn": "CRSArrTime",
+            "displayOrdinal": 39
+          },
+          {
+            "name": "ArrTime",
+            "dataType": "int64",
+            "sourceColumn": "ArrTime",
+            "displayOrdinal": 40
+          },
+          {
+            "name": "ArrDelay",
+            "dataType": "double",
+            "sourceColumn": "ArrDelay",
+            "displayOrdinal": 41
+          },
+          {
+            "name": "ArrDelayMinutes",
+            "dataType": "double",
+            "sourceColumn": "ArrDelayMinutes",
+            "displayOrdinal": 42
+          },
+          {
+            "name": "ArrDel15",
+            "dataType": "double",
+            "sourceColumn": "ArrDel15",
+            "displayOrdinal": 43
+          },
+          {
+            "name": "ArrivalDelayGroups",
+            "dataType": "int64",
+            "sourceColumn": "ArrivalDelayGroups",
+            "displayOrdinal": 44
+          },
+          {
+            "name": "ArrTimeBlk",
+            "dataType": "string",
+            "sourceColumn": "ArrTimeBlk",
+            "displayOrdinal": 45
+          },
+          {
+            "name": "Cancelled",
+            "dataType": "double",
+            "sourceColumn": "Cancelled",
+            "displayOrdinal": 46
+          },
+          {
+            "name": "CancellationCode",
+            "dataType": "string",
+            "sourceColumn": "CancellationCode",
+            "displayOrdinal": 47
+          },
+          {
+            "name": "Diverted",
+            "dataType": "double",
+            "sourceColumn": "Diverted",
+            "displayOrdinal": 48
+          },
+          {
+            "name": "CRSElapsedTime",
+            "dataType": "double",
+            "sourceColumn": "CRSElapsedTime",
+            "displayOrdinal": 49
+          },
+          {
+            "name": "ActualElapsedTime",
+            "dataType": "double",
+            "sourceColumn": "ActualElapsedTime",
+            "displayOrdinal": 50
+          },
+          {
+            "name": "AirTime",
+            "dataType": "double",
+            "sourceColumn": "AirTime",
+            "displayOrdinal": 51
+          },
+          {
+            "name": "Flights",
+            "dataType": "double",
+            "sourceColumn": "Flights",
+            "displayOrdinal": 52
+          },
+          {
+            "name": "Distance",
+            "dataType": "double",
+            "sourceColumn": "Distance",
+            "displayOrdinal": 53
+          },
+          {
+            "name": "DistanceGroup",
+            "dataType": "int64",
+            "sourceColumn": "DistanceGroup",
+            "displayOrdinal": 54
+          },
+          {
+            "name": "CarrierDelay",
+            "dataType": "double",
+            "sourceColumn": "CarrierDelay",
+            "displayOrdinal": 55
+          },
+          {
+            "name": "WeatherDelay",
+            "dataType": "double",
+            "sourceColumn": "WeatherDelay",
+            "displayOrdinal": 56
+          },
+          {
+            "name": "NASDelay",
+            "dataType": "double",
+            "sourceColumn": "NASDelay",
+            "displayOrdinal": 57
+          },
+          {
+            "name": "SecurityDelay",
+            "dataType": "double",
+            "sourceColumn": "SecurityDelay",
+            "displayOrdinal": 58
+          },
+          {
+            "name": "LateAircraftDelay",
+            "dataType": "double",
+            "sourceColumn": "LateAircraftDelay",
+            "displayOrdinal": 59
+          },
+          {
+            "name": "FirstDepTime",
+            "dataType": "int64",
+            "sourceColumn": "FirstDepTime",
+            "displayOrdinal": 60
+          },
+          {
+            "name": "TotalAddGTime",
+            "dataType": "double",
+            "sourceColumn": "TotalAddGTime",
+            "displayOrdinal": 61
+          },
+          {
+            "name": "LongestAddGTime",
+            "dataType": "double",
+            "sourceColumn": "LongestAddGTime",
+            "displayOrdinal": 62
+          },
+          {
+            "name": "DivAirportLandings",
+            "dataType": "int64",
+            "sourceColumn": "DivAirportLandings",
+            "displayOrdinal": 63
+          },
+          {
+            "name": "DivReachedDest",
+            "dataType": "double",
+            "sourceColumn": "DivReachedDest",
+            "displayOrdinal": 64
+          },
+          {
+            "name": "DivActualElapsedTime",
+            "dataType": "double",
+            "sourceColumn": "DivActualElapsedTime",
+            "displayOrdinal": 65
+          },
+          {
+            "name": "DivArrDelay",
+            "dataType": "double",
+            "sourceColumn": "DivArrDelay",
+            "displayOrdinal": 66
+          },
+          {
+            "name": "DivDistance",
+            "dataType": "double",
+            "sourceColumn": "DivDistance",
+            "displayOrdinal": 67
+          },
+          {
+            "name": "Div1Airport",
+            "dataType": "string",
+            "sourceColumn": "Div1Airport",
+            "displayOrdinal": 68
+          },
+          {
+            "name": "Div1AirportID",
+            "dataType": "int64",
+            "sourceColumn": "Div1AirportID",
+            "displayOrdinal": 69
+          },
+          {
+            "name": "Div1AirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "Div1AirportSeqID",
+            "displayOrdinal": 70
+          },
+          {
+            "name": "Div1WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "Div1WheelsOn",
+            "displayOrdinal": 71
+          },
+          {
+            "name": "Div1TotalGTime",
+            "dataType": "double",
+            "sourceColumn": "Div1TotalGTime",
+            "displayOrdinal": 72
+          },
+          {
+            "name": "Div1LongestGTime",
+            "dataType": "double",
+            "sourceColumn": "Div1LongestGTime",
+            "displayOrdinal": 73
+          },
+          {
+            "name": "Div1WheelsOff",
+            "dataType": "int64",
+            "sourceColumn": "Div1WheelsOff",
+            "displayOrdinal": 74
+          },
+          {
+            "name": "Div1TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div1TailNum",
+            "displayOrdinal": 75
+          },
+          {
+            "name": "Div2Airport",
+            "dataType": "string",
+            "sourceColumn": "Div2Airport",
+            "displayOrdinal": 76
+          },
+          {
+            "name": "Div2AirportID",
+            "dataType": "int64",
+            "sourceColumn": "Div2AirportID",
+            "displayOrdinal": 77
+          },
+          {
+            "name": "Div2AirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "Div2AirportSeqID",
+            "displayOrdinal": 78
+          },
+          {
+            "name": "Div2WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "Div2WheelsOn",
+            "displayOrdinal": 79
+          },
+          {
+            "name": "Div2TotalGTime",
+            "dataType": "double",
+            "sourceColumn": "Div2TotalGTime",
+            "displayOrdinal": 80
+          },
+          {
+            "name": "Div2LongestGTime",
+            "dataType": "double",
+            "sourceColumn": "Div2LongestGTime",
+            "displayOrdinal": 81
+          },
+          {
+            "name": "Div2WheelsOff",
+            "dataType": "int64",
+            "sourceColumn": "Div2WheelsOff",
+            "displayOrdinal": 82
+          },
+          {
+            "name": "Div2TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div2TailNum",
+            "displayOrdinal": 83
+          },
+          {
+            "name": "Div3Airport",
+            "dataType": "string",
+            "sourceColumn": "Div3Airport",
+            "displayOrdinal": 84
+          },
+          {
+            "name": "Div3AirportID",
+            "dataType": "int64",
+            "sourceColumn": "Div3AirportID",
+            "displayOrdinal": 85
+          },
+          {
+            "name": "Div3AirportSeqID",
+            "dataType": "int64",
+            "sourceColumn": "Div3AirportSeqID",
+            "displayOrdinal": 86
+          },
+          {
+            "name": "Div3WheelsOn",
+            "dataType": "int64",
+            "sourceColumn": "Div3WheelsOn",
+            "displayOrdinal": 87
+          },
+          {
+            "name": "Div3TotalGTime",
+            "dataType": "double",
+            "sourceColumn": "Div3TotalGTime",
+            "displayOrdinal": 88
+          },
+          {
+            "name": "Div3LongestGTime",
+            "dataType": "double",
+            "sourceColumn": "Div3LongestGTime",
+            "displayOrdinal": 89
+          },
+          {
+            "name": "Div3WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "Div3WheelsOff",
+            "displayOrdinal": 90
+          },
+          {
+            "name": "Div3TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div3TailNum",
+            "displayOrdinal": 91
+          },
+          {
+            "name": "Div4Airport",
+            "dataType": "string",
+            "sourceColumn": "Div4Airport",
+            "displayOrdinal": 92
+          },
+          {
+            "name": "Div4AirportID",
+            "dataType": "string",
+            "sourceColumn": "Div4AirportID",
+            "displayOrdinal": 93
+          },
+          {
+            "name": "Div4AirportSeqID",
+            "dataType": "string",
+            "sourceColumn": "Div4AirportSeqID",
+            "displayOrdinal": 94
+          },
+          {
+            "name": "Div4WheelsOn",
+            "dataType": "string",
+            "sourceColumn": "Div4WheelsOn",
+            "displayOrdinal": 95
+          },
+          {
+            "name": "Div4TotalGTime",
+            "dataType": "string",
+            "sourceColumn": "Div4TotalGTime",
+            "displayOrdinal": 96
+          },
+          {
+            "name": "Div4LongestGTime",
+            "dataType": "string",
+            "sourceColumn": "Div4LongestGTime",
+            "displayOrdinal": 97
+          },
+          {
+            "name": "Div4WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "Div4WheelsOff",
+            "displayOrdinal": 98
+          },
+          {
+            "name": "Div4TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div4TailNum",
+            "displayOrdinal": 99
+          },
+          {
+            "name": "Div5Airport",
+            "dataType": "string",
+            "sourceColumn": "Div5Airport",
+            "displayOrdinal": 100
+          },
+          {
+            "name": "Div5AirportID",
+            "dataType": "string",
+            "sourceColumn": "Div5AirportID",
+            "displayOrdinal": 101
+          },
+          {
+            "name": "Div5AirportSeqID",
+            "dataType": "string",
+            "sourceColumn": "Div5AirportSeqID",
+            "displayOrdinal": 102
+          },
+          {
+            "name": "Div5WheelsOn",
+            "dataType": "string",
+            "sourceColumn": "Div5WheelsOn",
+            "displayOrdinal": 103
+          },
+          {
+            "name": "Div5TotalGTime",
+            "dataType": "string",
+            "sourceColumn": "Div5TotalGTime",
+            "displayOrdinal": 104
+          },
+          {
+            "name": "Div5LongestGTime",
+            "dataType": "string",
+            "sourceColumn": "Div5LongestGTime",
+            "displayOrdinal": 105
+          },
+          {
+            "name": "Div5WheelsOff",
+            "dataType": "string",
+            "sourceColumn": "Div5WheelsOff",
+            "displayOrdinal": 106
+          },
+          {
+            "name": "Div5TailNum",
+            "dataType": "string",
+            "sourceColumn": "Div5TailNum",
+            "displayOrdinal": 107
+          },
+          {
+            "name": "_c109",
+            "dataType": "string",
+            "sourceColumn": "_c109",
+            "displayOrdinal": 108
+          }
+        ],
+        "partitions": [
+          {
+            "name": "performance",
+            "source": {
+              "query": "SELECT [Quarter],[Month],[DayofMonth],[DayOfWeek],[FlightDate],[UniqueCarrier],[AirlineID],[Carrier],[TailNum],[FlightNum],[OriginAirportID],[OriginAirportSeqID],[OriginCityMarketID],[Origin],[OriginCityName],[OriginState],[OriginStateFips],[OriginStateName],[OriginWac],[DestAirportID],[DestAirportSeqID],[DestCityMarketID],[Dest],[DestCityName],[DestState],[DestStateFips],[DestStateName],[DestWac],[CRSDepTime],[DepTime],[DepDelay],[DepDelayMinutes],[DepDel15],[DepartureDelayGroups],[DepTimeBlk],[TaxiOut],[WheelsOff],[WheelsOn],[TaxiIn],[CRSArrTime],[ArrTime],[ArrDelay],[ArrDelayMinutes],[ArrDel15],[ArrivalDelayGroups],[ArrTimeBlk],[Cancelled],[CancellationCode],[Diverted],[CRSElapsedTime],[ActualElapsedTime],[AirTime],[Flights],[Distance],[DistanceGroup],[CarrierDelay],[WeatherDelay],[NASDelay],[SecurityDelay],[LateAircraftDelay],[FirstDepTime],[TotalAddGTime],[LongestAddGTime],[DivAirportLandings],[DivReachedDest],[DivActualElapsedTime],[DivArrDelay],[DivDistance],[Div1Airport],[Div1AirportID],[Div1AirportSeqID],[Div1WheelsOn],[Div1TotalGTime],[Div1LongestGTime],[Div1WheelsOff],[Div1TailNum],[Div2Airport],[Div2AirportID],[Div2AirportSeqID],[Div2WheelsOn],[Div2TotalGTime],[Div2LongestGTime],[Div2WheelsOff],[Div2TailNum],[Div3Airport],[Div3AirportID],[Div3AirportSeqID],[Div3WheelsOn],[Div3TotalGTime],[Div3LongestGTime],[Div3WheelsOff],[Div3TailNum],[Div4Airport],[Div4AirportID],[Div4AirportSeqID],[Div4WheelsOn],[Div4TotalGTime],[Div4LongestGTime],[Div4WheelsOff],[Div4TailNum],[Div5Airport],[Div5AirportID],[Div5AirportSeqID],[Div5WheelsOn],[Div5TotalGTime],[Div5LongestGTime],[Div5WheelsOff],[Div5TailNum],[_c109] FROM [dbo].[performance]",
+              "dataSource": "SqlServer wtnssisruntime.database.windows.net wtndwairline"
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ASW-DEFAULT-DIAGRAM",
+        "value": "{\"Version\":1,\"Name\":\"default\",\"Tables\":[{\"TableName\":\"delayed\",\"X\":319,\"Y\":93,\"Z\":1,\"Width\":225,\"Height\":275}]}"
+      }
+    ]
+  }
+}
